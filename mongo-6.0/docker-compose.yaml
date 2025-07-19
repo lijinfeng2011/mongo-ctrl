@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: mongo-_UUID_
+    restart: always
+    ports:
+      - "_PORT_:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: _PASSWORD_
+    volumes:
+      - /data/mongo/_UUID_/data:/data/db
+      - /data/mongo/_UUID_/mongod.conf:/etc/mongo/mongod.conf
+    command: ["mongod", "--config", "/etc/mongo/mongod.conf"]
+
